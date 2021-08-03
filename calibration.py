@@ -16,9 +16,9 @@ for file in os.listdir("./"):
         print(file)
         img.append( tif.imread( file ) )
         img[-1] = np.mean( img[-1][:,:,0:3], axis = 2) # convert to greyscale
-        # img[-1] = img[-1]*hann2d(img[-1].shape[1], img[-1].shape[0])
-        # plt.figure()
-        # plt.imshow(img[-1])
+        img[-1] = img[-1]*hann2d(img[-1].shape[1], img[-1].shape[0])
+        plt.figure()
+        plt.imshow(img[-1])
 del(file)
 
 #%%
@@ -28,8 +28,8 @@ DY = []
 
 for i in range(0, len(img)-1):
     C = normxcorr2(img[i],img[i+1], 'same')
-    # plt.figure()
-    # plt.imshow(C)
+    plt.figure()
+    plt.imshow(C)
     dx, dy = drift(C)
     print('dx = ', dx)
     print('dy = ', dy)
