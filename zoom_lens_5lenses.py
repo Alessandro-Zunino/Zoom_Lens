@@ -83,7 +83,7 @@ plt.subplot(2,3,3)
 plt.xlabel('$d_3$ (mm)')
 plt.ylabel('Magnification')
 plt.plot(d_3, Magnification, 'r')
-plt.xticks( np.arange(0,151,50) )
+# plt.xticks( np.arange(0,151,50) )
 
 plt.tight_layout()
 
